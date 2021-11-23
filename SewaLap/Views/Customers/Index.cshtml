@@ -1,0 +1,47 @@
+﻿@model IEnumerable<SewaLap.Models.Customer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("NoHp")
+            </th>
+            <th>
+                @Html.DisplayName("NamaCustomer")
+            </th>
+            <th>
+                @Html.DisplayName("Alamat")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoHp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NamaCustomer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alamat)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdCustomer"><i class="glyphicon glyphicon-refresh"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.IdCustomer"><i class="glyphicon glyphicon-menu-hamburger"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.IdCustomer"><i class="glyphicon glyphicon-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

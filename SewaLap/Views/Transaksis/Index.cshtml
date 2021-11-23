@@ -1,0 +1,53 @@
+﻿@model IEnumerable<SewaLap.Models.Transaksi>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("TotalTransaksi")
+            </th>
+            <th>
+                @Html.DisplayName("IdAdminNavigation")
+            </th>
+            <th>
+                @Html.DisplayName("IdCustomerNavigation")
+            </th>
+            <th>
+                @Html.DisplayName("IdLapanganNavigation")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalTransaksi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdAdminNavigation.IdAdmin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCustomerNavigation.IdCustomer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdLapanganNavigation.IdLapangan)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdTransaksi"><i class="glyphicon glyphicon-refresh"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.IdTransaksi"><i class="glyphicon glyphicon-menu-hamburger"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.IdTransaksi"><i class="glyphicon glyphicon-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

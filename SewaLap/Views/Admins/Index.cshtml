@@ -1,0 +1,47 @@
+﻿@model IEnumerable<SewaLap.Models.Admin>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Username")
+            </th>
+            <th>
+                @Html.DisplayName("PasswordAdmin")
+            </th>
+            <th>
+                @Html.DisplayName("EmailAdmin")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PasswordAdmin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAdmin)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdAdmin"><i class="glyphicon glyphicon-refresh"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.IdAdmin"><i class="glyphicon glyphicon-menu-hamburger"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.IdAdmin"><i class="glyphicon glyphicon-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
